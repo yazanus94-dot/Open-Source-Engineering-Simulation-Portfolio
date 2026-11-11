@@ -1,0 +1,16 @@
+* Full-wave bridge rectifier with smoothing capacitor (Xyce)
+.PARAM Cfilt=470u Rload=100 Vpk=17
+Vac a b SIN(0 {Vpk} 50)
+Rs1 b 0 1Meg
+D1 a pos D1N4007
+D2 0 a D1N4007
+D3 b pos D1N4007
+D4 0 b D1N4007
+Cf pos 0 {Cfilt}
+RL pos 0 {Rload}
+.MODEL D1N4007 D(IS=7.02767n RS=0.0341512 N=1.80803 BV=1000 IBV=5u CJO=26.5pF M=0.333 TT=2.88u)
+.TRAN 50u 100m
+.STEP Cfilt LIST 100u 470u 2200u
+.PRINT TRAN FORMAT=CSV FILE=bridge.csv V(pos) V(a,b)
+.OPTIONS TIMEINT RELTOL=1e-4 ABSTOL=1e-8
+.END

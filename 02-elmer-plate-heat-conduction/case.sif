@@ -1,0 +1,52 @@
+Header
+  Mesh DB "." "mesh"
+End
+Simulation
+  Coordinate System = Cartesian 2D
+  Simulation Type = Steady State
+  Steady State Max Iterations = 1
+  Output File = "heat.result"
+  Post File = "heat.vtu"
+End
+Constants
+  Stefan Boltzmann = 5.67e-8
+End
+Body 1
+  Equation = 1
+  Material = 1
+End
+Equation 1
+  Active Solvers(1) = 1
+End
+Solver 1
+  Equation = Heat Equation
+  Procedure = "HeatSolve" "HeatSolver"
+  Variable = Temperature
+  Linear System Solver = Iterative
+  Linear System Iterative Method = BiCGStab
+  Linear System Max Iterations = 500
+  Linear System Convergence Tolerance = 1.0e-10
+  Linear System Preconditioning = ILU1
+  Calculate Loads = True
+  Exec Solver = Always
+  Steady State Convergence Tolerance = 1.0e-6
+End
+Material 1
+  Density = 2700.0
+  Heat Conductivity = 237.0
+  Heat Capacity = 897.0
+End
+Boundary Condition 1
+  Target Boundaries(1) = 2
+  Temperature = 373.15
+End
+Boundary Condition 2
+  Target Boundaries(1) = 3
+  Temperature = 293.15
+End
+Boundary Condition 3
+  Target Boundaries(1) = 4
+  Heat Flux BC = Logical True
+  Heat Transfer Coefficient = 25.0
+  External Temperature = 293.15
+End

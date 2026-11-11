@@ -1,0 +1,8 @@
+#!/bin/bash
+# Re = U*L/nu = 1*0.1/0.01 = 10 (laminar)
+set -e
+blockMesh | tee log.blockMesh
+checkMesh | tee log.checkMesh
+icoFoam | tee log.icoFoam
+postProcess -func sample -latestTime 2>/dev/null || true
+touch case.foam   # open in ParaView

@@ -1,0 +1,23 @@
+# RTL -> generic gates, statistics, and formal equivalence check (gold vs. gate-level)
+read_verilog alu.v
+hierarchy -check -top alu
+proc; opt_clean
+design -stash gold
+
+read_verilog alu.v
+hierarchy -check -top alu
+synth -top alu -flatten
+abc -g AND,NAND,OR,NOR,XOR,XNOR,ANDNOT,ORNOT,MUX
+opt_clean
+tee -o stats.txt stat
+write_verilog -noattr alu_gate.v
+write_json alu.json
+design -stash gate
+
+design -copy-from gold -as gold alu
+design -copy-from gate -as gate alu
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+equiv_induct
+equiv_status -assert

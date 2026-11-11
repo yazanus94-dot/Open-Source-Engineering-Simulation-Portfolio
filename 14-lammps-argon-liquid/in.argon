@@ -1,0 +1,36 @@
+# Liquid argon, Lennard-Jones, NVT at 94.4 K  (real units: Angstrom, fs, kcal/mol)
+units           real
+atom_style      atomic
+boundary        p p p
+lattice         fcc 5.72                 # slightly expanded -> liquid density after equilibration
+region          box block 0 6 0 6 0 6
+create_box      1 box
+create_atoms    1 box
+mass            1 39.948
+pair_style      lj/cut 8.5
+pair_coeff      1 1 0.2381 3.405
+pair_modify     shift yes
+neighbor        2.0 bin
+neigh_modify    every 1 delay 0 check yes
+velocity        all create 300.0 4928459 dist gaussian
+timestep        5.0
+thermo          500
+thermo_style    custom step temp pe ke etotal press vol density
+
+# melt and equilibrate
+fix             nvt all nvt temp 300.0 94.4 500.0
+run             10000
+unfix           nvt
+fix             nvt all nvt temp 94.4 94.4 500.0
+run             20000
+
+# production
+reset_timestep  0
+compute         rdf all rdf 100 cutoff 8.0
+compute         msd all msd com yes
+fix             rdfout all ave/time 100 100 10000 c_rdf[1] c_rdf[2] file rdf.dat mode vector
+fix             msdout all print 100 "$(step) $(c_msd[4])" file msd.dat screen no title "step msd"
+fix             tout all print 1000 "$(step) $(temp) $(pe) $(press)" file thermo.dat screen no
+dump            d all custom 5000 traj.lammpstrj id type x y z
+run             100000
+write_data      final.data

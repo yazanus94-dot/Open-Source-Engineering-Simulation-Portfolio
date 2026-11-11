@@ -1,0 +1,10 @@
+Ref,Value,Footprint,Qty,Comment
+U1,NE555P,DIP-8,1,Timer
+R1,1k,0805,1,Timing
+R2,68k,0805,1,Timing
+R3,470,0805,1,LED current limit (~10 mA)
+C1,10u,1206,1,Timing (use film/ceramic, not electrolytic, for tolerance)
+C2,10n,0805,1,Control-voltage bypass
+C3,100n,0805,1,Supply decoupling
+D1,LED,0805,1,Indicator
+J1,Conn_01x02,2.54mm header,1,9 V in

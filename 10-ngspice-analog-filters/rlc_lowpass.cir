@@ -1,0 +1,19 @@
+* 2nd-order RLC low-pass: f0 = 1/(2*pi*sqrt(LC)) = 5.03 kHz, Q = sqrt(L/C)/R = 2.0 (with R=50)
+Vin in 0 DC 0 AC 1 PULSE(0 1 0 1n 1n 1m 2m)
+R1 in n1 50
+L1 n1 out 10m
+C1 out 0 100n
+Rload out 0 1Meg
+
+.control
+  ac dec 200 10 1meg
+  let gain_db = vdb(out)
+  let phase_deg = 180/pi*vp(out)
+  meas ac peak_db MAX vdb(out)
+  meas ac f3db WHEN vdb(out)=-3 FALL=1
+  wrdata ac_out.csv gain_db phase_deg
+  tran 1u 3m
+  wrdata tran_out.csv v(in) v(out)
+  echo "AC and TRAN analyses complete."
+.endc
+.end

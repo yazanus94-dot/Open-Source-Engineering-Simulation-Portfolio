@@ -1,0 +1,10 @@
+import numpy as np, matplotlib; matplotlib.use("Agg"); import matplotlib.pyplot as plt
+d = np.loadtxt("bands.dat.gnu")
+k = np.unique(d[:, 0])
+nb = len(d) // len(k)
+E = d[:, 1].reshape(nb, -1)
+ef = float(open("vbm.txt").read()) if __import__("os").path.exists("vbm.txt") else E[3].max()
+for b in E: plt.plot(k, b - ef, "k", lw=1)
+plt.axhline(0, color="r", ls="--", lw=.6); plt.ylabel("E - E_VBM (eV)"); plt.xlabel("k-path (L-G-X-W-G)")
+plt.ylim(-13, 8); plt.savefig("bands.png", dpi=200)
+print("Band gap (indirect, eV):", E[4].min() - E[3].max())

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Open-Source Engineering Simulation Portfolio — Yazan Aljabari</title>
+  <meta name="description" content="Portfolio of 18 open-source engineering, simulation, CAD, EDA, and scientific computing project workflows." />
+  <style>
+    :root {--bg:#0b1020; --panel:#121a33; --panel2:#0f1730; --text:#e6edf7; --muted:#a8b3cf; --accent:#4f8cff; --border:#22305a; --chip:#1a2547;}
+    * {box-sizing:border-box} body {margin:0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:linear-gradient(180deg,#0b1020 0%,#0a0f1d 100%); color:var(--text); line-height:1.55}
+    a {color:#8bb6ff; text-decoration:none} a:hover {text-decoration:underline}
+    .wrap {max-width:1150px; margin:0 auto; padding:32px 20px 56px}
+    .hero {background: radial-gradient(1200px 400px at 10% -10%, rgba(79,140,255,.25), transparent), linear-gradient(180deg, rgba(18,26,51,.95), rgba(15,23,48,.95)); border:1px solid var(--border); border-radius:18px; padding:28px; box-shadow:0 20px 50px rgba(0,0,0,.25)}
+    h1 {margin:0 0 8px; font-size:clamp(1.8rem,3vw,2.6rem)}
+    .subtitle {color:var(--muted); margin:0 0 18px; font-size:1.05rem; max-width:980px}
+    .meta,.actions {display:flex; flex-wrap:wrap; gap:10px}
+    .chip {background:var(--chip); border:1px solid var(--border); color:#dce7ff; padding:6px 10px; border-radius:999px; font-size:.9rem}
+    .actions {margin-top:16px}
+    .btn {display:inline-block; padding:10px 14px; border-radius:10px; border:1px solid var(--border); background:#172247; color:#fff; font-weight:600}
+    .btn.primary {background:var(--accent); border-color:#5b93ff; color:#081225}
+    section {margin-top:24px}
+    h2 {font-size:1.25rem; margin:0 0 10px}
+    .kpi {display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px}
+    .item,.card,.panel {background:rgba(18,26,51,.75); border:1px solid var(--border); border-radius:14px}
+    .item {padding:12px} .n {font-size:1.2rem; font-weight:700} .l {color:var(--muted); font-size:.9rem}
+    .grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px}
+    .card {padding:14px} .card h3 {margin:0 0 6px; font-size:1rem} .card p {margin:0 0 8px; color:var(--muted); font-size:.93rem}
+    .tag {display:inline-block; font-size:.75rem; color:#cfe0ff; background:#162449; border:1px solid #27406f; padding:2px 8px; border-radius:999px; margin:0 6px 6px 0}
+    .panel {padding:16px} ul {margin:8px 0 0 20px; color:var(--muted)} li {margin:4px 0}
+    .cols {display:grid; grid-template-columns:1.2fr .8fr; gap:12px} @media (max-width:900px){.cols{grid-template-columns:1fr}}
+    code {background:#101a36; border:1px solid #22305a; padding:1px 6px; border-radius:6px; color:#dce7ff}
+    footer {margin-top:26px; color:var(--muted); font-size:.92rem; border-top:1px solid var(--border); padding-top:14px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="hero">
+      <h1>Open-Source Engineering Simulation Portfolio</h1>
+      <p class="subtitle">18 documented workflows spanning CFD, FEA, materials/atomistic modeling, molecular dynamics, electrochemistry, circuit simulation, HDL design/verification, PCB, meshing, and parametric CAD — with preserved source artifacts and transparent, reproducible documentation.</p>
+      <div class="meta">
+        <span class="chip"><strong>Author:</strong>&nbsp;Yazan Aljabari</span>
+        <span class="chip"><strong>License:</strong>&nbsp;MIT</span>
+        <span class="chip"><strong>Projects:</strong>&nbsp;18</span>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="README.md">Read the README</a>
+        <a class="btn" href="docs/results.md">Results dashboard</a>
+        <a class="btn" href="https://www.linkedin.com/in/yazan-aljabari-878202139/">LinkedIn</a>
+      </div>
+    </header>
+
+    <section>
+      <div class="kpi">
+        <div class="item"><div class="n">18</div><div class="l">Independent, numbered project modules</div></div>
+        <div class="item"><div class="n">8+ domains</div><div class="l">CFD, FEA, DFT/MD, circuits, HDL, PCB, CAD/meshing</div></div>
+        <div class="item"><div class="n">Source-first</div><div class="l">Inputs/configs/scripts preserved and documented</div></div>
+        <div class="item"><div class="n">Transparent</div><div class="l">No fabricated simulation outputs; reproducible run guidance</div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="card"><h3><a href="01-openfoam-lid-driven-cavity/">OpenFOAM Lid-Driven Cavity</a></h3><p>Incompressible laminar lid-driven cavity (Re=100) case setup and post-processing workflow.</p><div><span class="tag">CFD / Fluid Dynamics</span><span class="tag">OpenFOAM (icoFoam</span></div></article><article class="card"><h3><a href="02-elmer-plate-heat-conduction/">Elmer Plate Heat Conduction</a></h3><p>Steady-state 2D heat conduction with Dirichlet/adiabatic boundaries.</p><div><span class="tag">FEA / Heat Transfer</span><span class="tag">ElmerFEM</span></div></article><article class="card"><h3><a href="03-cadquery-parametric-flange/">CadQuery Parametric Flange</a></h3><p>Parametric bolt-circle flange generation with STEP/STL export and tests.</p><div><span class="tag">CAD / Parametric Design</span><span class="tag">CadQuery</span></div></article><article class="card"><h3><a href="04-fenicsx-cantilever-elasticity/">FEniCSx Cantilever Elasticity</a></h3><p>3D linear elasticity cantilever model with tip traction and theory comparison hook.</p><div><span class="tag">FEA / Solid Mechanics</span><span class="tag">FEniCSx/DOLFINx</span></div></article><article class="card"><h3><a href="05-openscad-parametric-enclosure/">OpenSCAD Parametric Enclosure</a></h3><p>Parametric electronics enclosure (base/lid, standoffs, vents) with STL export flow.</p><div><span class="tag">CAD / Parametric Design</span><span class="tag">OpenSCAD</span></div></article><article class="card"><h3><a href="06-su2-naca0012-transonic/">SU2 NACA 0012 Transonic Flow</a></h3><p>Inviscid transonic NACA 0012 case (mesh/config/plot scripts).</p><div><span class="tag">CFD / Aerodynamics</span><span class="tag">SU2</span></div></article><article class="card"><h3><a href="07-quantum-espresso-silicon/">Quantum ESPRESSO Silicon</a></h3><p>Silicon SCF, cutoff convergence, and band-structure workflow inputs/scripts.</p><div><span class="tag">DFT / Materials Science</span><span class="tag">Quantum ESPRESSO</span></div></article><article class="card"><h3><a href="08-pymatgen-crystal-analysis/">Pymatgen Crystal Analysis</a></h3><p>Crystal structure construction/analysis utilities with basic tests.</p><div><span class="tag">Materials Informatics</span><span class="tag">pymatgen</span></div></article><article class="card"><h3><a href="09-pybamm-battery-simulation/">PyBaMM Battery Simulation</a></h3><p>Lithium-ion discharge simulation workflow across operating conditions.</p><div><span class="tag">Electrochemical Modeling</span><span class="tag">PyBaMM</span></div></article><article class="card"><h3><a href="10-ngspice-analog-filters/">ngspice Analog Filters</a></h3><p>RLC low-pass AC analysis and RC-diode clipper transient simulation.</p><div><span class="tag">Circuit Simulation / Analog</span><span class="tag">ngspice</span></div></article><article class="card"><h3><a href="11-xyce-bridge-rectifier/">Xyce Bridge Rectifier</a></h3><p>Full-wave bridge rectifier transient simulation and post-processing.</p><div><span class="tag">Circuit Simulation / Power Electronics</span><span class="tag">Xyce</span></div></article><article class="card"><h3><a href="12-ase-surface-adsorption/">ASE Surface Adsorption Workflow</a></h3><p>Surface slab + adsorbate setup and relaxation/adsorption-energy workflow.</p><div><span class="tag">Atomistic Modeling</span><span class="tag">ASE</span></div></article><article class="card"><h3><a href="13-calculix-cantilever-beam/">CalculiX Cantilever Beam</a></h3><p>3D cantilever static analysis with mesh/input generation and theory check script.</p><div><span class="tag">FEA / Structural</span><span class="tag">CalculiX</span></div></article><article class="card"><h3><a href="14-lammps-argon-liquid/">LAMMPS Argon Liquid (LJ)</a></h3><p>Lennard-Jones liquid argon MD workflow with thermodynamic analysis script.</p><div><span class="tag">Molecular Dynamics</span><span class="tag">LAMMPS</span></div></article><article class="card"><h3><a href="15-yosys-alu-synthesis/">Yosys ALU Synthesis</a></h3><p>Parameterizable ALU RTL, self-checking testbench, and synthesis flow.</p><div><span class="tag">Digital Design / HDL</span><span class="tag">Yosys</span></div></article><article class="card"><h3><a href="16-gmsh-adaptive-plate-with-hole/">Gmsh Adaptive Plate with Hole</a></h3><p>Adaptive 2D mesh generation for stress-concentration-aware FEA preprocessing.</p><div><span class="tag">Meshing / Preprocessing</span><span class="tag">Gmsh API</span></div></article><article class="card"><h3><a href="17-verilator-sync-fifo/">Verilator Synchronous FIFO</a></h3><p>Synchronous FIFO RTL verified with a C++ Verilator testbench.</p><div><span class="tag">Digital Design / Verification</span><span class="tag">Verilator</span></div></article><article class="card"><h3><a href="18-kicad-555-astable-blinker/">KiCad 555 Astable Blinker</a></h3><p>NE555 astable blinker design calculations, netlist/BOM utilities, and layout checklist.</p><div><span class="tag">PCB / Electronics Design</span><span class="tag">KiCad</span></div></article>
+      </div>
+    </section>
+
+    <section class="cols">
+      <div class="panel">
+        <h2>Quick start</h2>
+        <ul>
+          <li>Clone the repo and install lightweight Python deps: <code>pip install -r requirements.txt</code></li>
+          <li>Validate portfolio structure: <code>python scripts/validate_portfolio.py</code></li>
+          <li>Open any project folder and follow its README (external toolchains required for execution).</li>
+          <li>Review <a href="docs/results.md">docs/results.md</a> for artifact and execution status.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>Highlights</h2>
+        <ul>
+          <li>OpenFOAM, SU2, ElmerFEM, FEniCSx, CalculiX, Gmsh</li>
+          <li>Quantum ESPRESSO, LAMMPS, ASE, pymatgen, PyBaMM</li>
+          <li>ngspice, Xyce, Yosys, Icarus Verilog, Verilator, KiCad</li>
+          <li>CadQuery and OpenSCAD parametric design</li>
+          <li>Per-project methodology, testing, and limitations documented</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div><strong>Yazan Aljabari</strong> · <a href="https://www.linkedin.com/in/yazan-aljabari-878202139/">LinkedIn</a> · MIT License</div>
+      <div style="margin-top:6px">Educational/professional portfolio. Included materials are source/configuration artifacts and documentation; numerical or graphical simulation results are produced by running workflows with the appropriate external tools.</div>
+    </footer>
+  </main>
+</body>
+</html>
